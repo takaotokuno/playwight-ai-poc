@@ -1,0 +1,22 @@
+{
+  "version": 1,
+  "id": "F-002",
+  "title": "顧客検索",
+  "sources": [{ "id": "SRC-001", "file": "requirements/file.xlsx", "revision": "ingestのrevisionで置き換える", "snapshot": "ingestのsnapshotで置き換える" }],
+  "criteria": [{
+    "id": "AC-001",
+    "original": "検索結果が正しく表示される。",
+    "source": "SRC-001",
+    "location": "検索仕様!B12",
+    "specification": "unresolved",
+    "automation": "not_started",
+    "gaps": ["GAP-001"],
+    "decisions": [],
+    "tests": [],
+    "prs": []
+  }],
+  "gaps": [{ "id": "GAP-001", "ac": "AC-001", "status": "open", "question": "照合方法、表示項目、並び順は何ですか？" }],
+  "decisions": [],
+  "runs": [],
+  "revisions": []
+}
