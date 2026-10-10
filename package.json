@@ -1,0 +1,43 @@
+{
+  "name": "playwright-ai-migration",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "format": "prettier --write \"lib/**/*.mjs\" \"scripts/**/*.mjs\" \"unit/**/*.mjs\" \"tests/**/*.ts\" \"*.ts\" \"demo/**/*.mjs\"",
+    "format:check": "prettier --check \"lib/**/*.mjs\" \"scripts/**/*.mjs\" \"unit/**/*.mjs\" \"tests/**/*.ts\" \"*.ts\" \"demo/**/*.mjs\"",
+    "test": "node --test unit/*.test.mjs",
+    "test:e2e": "playwright test",
+    "typecheck": "tsc --noEmit",
+    "migration": "node scripts/migration.mjs",
+    "agents:init": "node scripts/init-agents.mjs",
+    "setup:check": "node scripts/check-setup.mjs",
+    "syntaxcheck": "node scripts/check-syntax.mjs",
+    "agents:run": "node scripts/agents-run.mjs",
+    "agents:run:claude": "node scripts/agents-run.mjs --provider claude",
+    "demo": "node demo/server.mjs",
+    "demo:prepare": "node scripts/prepare-demo.mjs",
+    "demo:check": "node scripts/check-demo.mjs",
+    "demo:test": "playwright test --config=playwright.demo.config.ts",
+    "check": "npm run format:check && npm run syntaxcheck && npm run typecheck && npm test && node scripts/migration.mjs validate"
+  },
+  "dependencies": {
+    "dotenv": "^17.2.0",
+    "exceljs": "^4.4.0",
+    "yaml": "^2.8.0"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.56.0",
+    "@types/node": "^24.0.0",
+    "prettier": "3.9.10",
+    "typescript": "^5.9.0"
+  },
+  "overrides": {
+    "exceljs": {
+      "uuid": "^11.1.1"
+    }
+  }
+}
